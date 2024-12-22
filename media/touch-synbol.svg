@@ -39,30 +39,36 @@
        id="style1">.cls-1{fill:none;}
        
        #path4 {
-         animation: filter-animation 2s infinite;  
+         animation: filter-animation 2s infinite;
+         animation-fill-mode: linear;
+         animation-timing-function: linear;
       }
       #path5 {
-         animation: filter-animation1 2s infinite;  
+         animation: filter-animation1 2s infinite;
+         animation-fill-mode: linear;
+         animation-timing-function: linear;
       }
       #path6 {
-         animation: filter-animation2 2s infinite;  
+         animation: filter-animation2 2s infinite;
+         animation-fill-mode: linear;
+         animation-timing-function: linear;
       }
 
       @keyframes filter-animation {
-         0% {stroke: #e1e1e1; }
-         50% { stroke: #d45500; }
-         100% { stroke: #e1e1e1;  }
+         0% {stroke: #d1d2d4; }
+         50% { stroke: #800000; }
+         100% { stroke: #d1d2d4;  }
       }
       @keyframes filter-animation1 {
-         0% { stroke: #da9a70; }
-         25% { stroke: #e1e1e1; }
-         75% { stroke: #d45500;  }
-         100% { stroke: #da9a70; }
+         0% { stroke: #a8696a; }
+         25% { stroke: #d1d2d4; }
+         50% { stroke: #a8696a; }
+         75% { stroke: #800000;  }
       }
       @keyframes filter-animation2 {
-         0% {stroke: #d45500; }
-         50% { stroke: #e1e1e1; }
-         100% { stroke: #d45500;  }
+         0% {stroke: #800000; }
+         50% { stroke: #d1d2d4; }
+         100% { stroke: #800000;  }
       }
 
 
@@ -91,7 +97,7 @@
        d="M 8.2955556,7.8079138 A 4.7044444,4.7044444 0 0 1 13,3.1034694 4.7044444,4.7044444 0 0 1 17.704444,7.8079138"
        sodipodi:open="true" />
     <path
-       style="fill:none;stroke:#d45500;stroke-width:1.20191;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       style="fill:none;stroke:#a8696a;stroke-width:1.20191;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
        id="path5"
        sodipodi:type="arc"
        sodipodi:cx="13"

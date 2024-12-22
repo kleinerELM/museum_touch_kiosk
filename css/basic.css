@@ -18,7 +18,7 @@ body {
 	display: flex;
 	height: 100vh;
 	overflow: hidden;
-	background-color: black;
+	background-color: #01173f;
 }
 
 @keyframes warninganim {
@@ -48,3 +48,11 @@ body {
 	display: table-cell;
 
 }
+
+.title {
+	font-family: "hiragino-mincho-pron", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+}
+
+

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weimar 1945</title>
   <!-- OpenSeadragon CSS -->
+  <link rel="stylesheet" href="./css/basic.css">
   <style>
 
 	/* Allgemeines Reset */
@@ -23,7 +24,8 @@
 	}
 
     body {
-		font-family: 'Libre Bodoni';
+		
+		font-family: "hiragino-mincho-pron", sans-serif;
 		display: flex;
 		height: 100vh;
 		overflow: hidden;
@@ -31,19 +33,51 @@
 
     .image-container {
       flex: 1;
-      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
 	
-    /* Style für den Viewer */
-    #openseadragon1 {
-      width: 100%;
-      height: 100vh;
-      background-color: black;
-    }
+	.head_wrapper, .block_wrapper {
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		color: #d1d2d4;
+		text-align: left;
+	}
+	.block_wrapper {
+		mix-blend-mode: multiply;
+	}
+	.head_title {
+		font-size: xxx-large;
+		margin: 1.5em auto 0 auto;
+		width: 41rem;
+		display: block;
+	}
+	.head_subtitle {
+		font-size: x-large;
+		margin: .5rem auto 0 auto;
+		width: 41rem;
+		display: block;
+		font-weight: 400;
+	}
+	.block1 {
+		display: block;
+		width: 20rem;
+		height: 24em;
+		background-color: #01173f;
+		margin: 2.5em auto 0 auto;
+		translate: -11.5rem;
+	}
+	.block2 {
+		display: block;
+		width: 20rem;
+		height: 19rem;
+		background-color: darkred;
+		margin: 0em auto 0 auto;
+		translate: 8.7rem;
+	}
 
 	#head {
 		text-orientation: sideways;
@@ -59,12 +93,13 @@
 	}
 
 	#overlay {
-		width: calc(100% - 3em);
+		width: 100%;
 		position: fixed;
 		height: 100vh;
 		background-image: url('./media/top.jpg');
 		background-size: cover;
 		background-position-x: -100em;
+		z-index:-1;
 	}
 
 	#shadow {
@@ -82,11 +117,12 @@
 		height: 100vh;
 		display: table;
 	}
-	#title span {
+	#title>span {
 		display: table-cell;
   		vertical-align: middle;
-		font-size: xxx-large;
+		font-size: 5rem;
 		text-shadow: 0px 0px 10px black;
+		font-weight: bold;
 	}
 	#touch-button {
 		width: 10%;
@@ -105,21 +141,25 @@
 </head>
 <body onclick="window.open('main_menu.html', '_top');">
  
+    <div class="block_wrapper">
+		<div class="block1"></div>
+	</div>
+    <div class="block_wrapper">
+		<div class="block2"></div>
+	</div>
+    <div class="head_wrapper">
+		<h1 class="head_title title">Spuren des Krieges:<br>Weimar im Sommer 1945.<br>Seltene Schrägluftbilder<br>der US-Army.</h1>
+		<h1 class="head_subtitle title">Sonderausstellung im<br>Stadtmuseum Weimar<br>im Bertuchhaus</h1>
+	</div>
+
 	<div class="image-container">
 	</div>
 
-	<!-- Header rechts -->
-	<div id="head">
-		<span>
-		Weimar im Sommer 1945
-		</span>
-	</div>
 	<div id="overlay">
-		<div id="shadow"></div>
 	</div>
 	<div id="title">
 		<span>
-			Erkunden sie die Details der Schrägluftbilder<br><br>Medienstation
+			Erkunden sie hier die Details
 		</span>
 		<a   target="_blank">
 			<object type="image/svg+xml" data="./media/touch-synbol.svg" id="touch-button">

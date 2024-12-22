@@ -24,6 +24,7 @@
   		margin-top: .75em;
 	}
     #nav {
+		font-family: "hiragino-mincho-pron", sans-serif;
 		width: 20.5em;
 		background-color: #161616;
 		border-right: 1px solid #292929;
@@ -99,7 +100,7 @@
 		position: absolute;
 		top: 2.3em;
 		font-size: xxx-large;
-		font-weight: bold;
+		/* font-weight: bold; */
 		color: white;
 		right: 0;
 		left: 0;
@@ -109,20 +110,25 @@
     #openseadragon1 {
       width: 100%;
       height: 100vh;
-      background-color: black;
+      background-color: black;/* #01173f; */
     }
 
 	#head {
-		text-orientation: sideways;
-		writing-mode: vertical-lr;
-		transform: rotate(-180deg);
-		background-color: black;
-		padding: 1em 0.5em;
+		font-family: "hiragino-mincho-pron", sans-serif;
+		background-color: #800000aa;
+		padding: 1em 1.5em;
 		text-align: center;
-		color: white;
+		/* mix-blend-mode: multiply; */
+		position: fixed;
+		right: 0;
+		top: 5rem;
 	}
 	#head span {
 		font-size: xx-large;
+		color: white;
+	}
+	#head_id {
+		/* font-family: 'Libre Bodoni'; */
 	}
   </style>
   <script src="js/jquery-3.7.1.min.js"></script>
@@ -151,7 +157,7 @@
 	<!-- Header rechts -->
 	<div id="head">
 		<span style="opacity: 0;">
-		Weimar im Sommer 1945 - Schrägluftbild "<span id="head_id"></span>"
+		<span id="head_id"></span>
 		</span>
 	</div>
 

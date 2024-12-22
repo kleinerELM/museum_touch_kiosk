@@ -9,6 +9,45 @@
   <link rel="stylesheet" href="./css/scroll_bounce.css">
   <style>
 	
+	.head_wrapper, .block_wrapper {
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		color: #d1d2d4;
+		text-align: left;
+	}
+	.block_wrapper {
+		mix-blend-mode: multiply;
+	}
+	.head_title {
+		font-size: xx-large;
+		margin: 1em auto 0 auto;
+		width: 25rem;
+		display: block;
+	}
+	.head_subtitle {
+		font-size: large;
+		margin: .5rem auto 0 auto;
+		width: 25rem;
+		display: block;
+		font-weight: 400;
+	}
+	.block1 {
+		display: block;
+		width: 13em;
+		height: 16em;
+		background-color: #01173f;
+		margin: 1em auto 0 auto;
+		translate: -6.5rem;
+	}
+	.block2 {
+		display: block;
+		width: 13em;
+		height: 12em;
+		background-color: darkred;
+		margin: 0em auto 0 auto;
+		translate: 6.7rem;
+	}
     #menu_nav {
 		width: 20.5em;
 		background-color: #161616;
@@ -125,6 +164,7 @@
 		font-size: xx-large;
 	}
   </style>
+  <script src="js/ndl8ohc.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/openseadragon.min.js"></script>
   <script src="js/custom.js"></script>
@@ -134,7 +174,6 @@
   </script>
 </head>
 <body>
-
 	<div id="menu_nav">
 		<a href="./main_menu.html"><img src="./media/go-back-arrow.svg"></a>
 	</div>
@@ -149,7 +188,7 @@
 	</div>
 
 	<!-- Header rechts -->
-	<div id="head">
+	<div id="head" class="title">
 		<span style="opacity: 0;">
 		Weimar im Sommer 1945 - Luftbild "<span id="head_id"></span>"
 		</span>

@@ -7,15 +7,57 @@
   <!-- OpenSeadragon CSS -->
   <link rel="stylesheet" href="./css/basic.css">
   <style>
-	h1 {
-		position: fixed;
-		color: white;
+	body {
+		background-color: white;
+	}
+	#banner {
+		background-image: url('./media/top.jpg');
+		background-size: cover;
 		width: 100%;
-		text-align: center;
-		margin-top: 0.5em;
-		font-size: xxx-large;
+		height: 17rem;
+		position: fixed;
 	}
 	
+	.head_wrapper, .block_wrapper {
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		color: #d1d2d4;
+		text-align: left;
+	}
+	.block_wrapper {
+		mix-blend-mode: multiply;
+	}
+	.head_title {
+		font-size: xx-large;
+		margin: 1em auto 0 auto;
+		width: 25rem;
+		display: block;
+	}
+	.head_subtitle {
+		font-size: large;
+		margin: .5rem auto 0 auto;
+		width: 25rem;
+		display: block;
+		font-weight: 400;
+	}
+	.block1 {
+		display: block;
+		width: 13em;
+		height: 16em;
+		background-color: #01173f;
+		margin: 1em auto 0 auto;
+		translate: -6.5rem;
+	}
+	.block2 {
+		display: block;
+		width: 13em;
+		height: 12em;
+		background-color: darkred;
+		margin: 0em auto 0 auto;
+		translate: 6.7rem;
+	}
+
 	#column1{
 		background-image: url('./media/mm-sl.jpg');
 		background-position: 6% 57%;
@@ -38,19 +80,17 @@
 	.column {
 		float: left;
 		width: 25%;
-		margin: 6em 4.16% 3em 4.16%;
-		height: calc( 100% - 10em);
+		margin: 11em 4.16% 3em 4.16%;
+		height: calc( 100% - 14em);
 		display: block;
 		text-align: center;
 		font-size: xx-large;
-		color: white;
-		background-color:dimgray;
-		border-radius: 1em;
+		color: #d1d2d4;
 		text-decoration: none;
-		box-shadow: rgba(255, 255, 255, 0.176) 0px 7px 29px 0px;
+		box-shadow: rgba(0, 0, 0, 0.176) 0px 7px 29px 0px;
 	}
 	.column:hover{
-		box-shadow: rgba(255, 255, 255, 0.409) 0px 7px 29px 0px;
+		box-shadow: rgba(0, 0, 0, 0.701) 0px 7px 29px 0px;
 	}
 
 	.selectorBox {
@@ -74,25 +114,72 @@
 	.column div.sb_2 {
 		display: table-cell;
 		vertical-align: middle;
-		text-shadow: 0px 0px 10px black;
+		/*text-shadow: 0px 0px 10px black;*/
 	}
 	.column div.sb_2 span{
 		display: block;
 		font-size: initial;
 		margin-top: 1em;
+		mix-blend-mode: screen;
 	}
+	.column div.sb_2>span:first-of-type{
+		font-size: x-large;
+	}
+	.column div.sb_2 div {
+		background-color: #01173f;
+		mix-blend-mode: multiply;
+		margin: 2rem 5rem -9rem 5rem;
+		height: 9rem;
+	}
+	.column:nth-of-type(odd) div.sb_2 div {
+		background-color: #800000;
+	}
+	
 
   </style>
+  <script src="js/ndl8ohc.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script> 
   <script src="js/timeout.js"></script>
 </head>
 <body>
-	<h1>Weimar im Sommer 1945</h1>
+	<div id="banner">
+		<div class="block_wrapper">
+			<div class="block1"></div>
+		</div>
+		<div class="block_wrapper">
+			<div class="block2"></div>
+		</div>
+		<div class="head_wrapper">
+			<h1 class="head_title title">Spuren des Krieges:<br>Weimar im Sommer 1945.<br>Seltene Schrägluftbilder<br>der US-Army.</h1>
+			<h1 class="head_subtitle title">Sonderausstellung im<br>Stadtmuseum Weimar<br>im Bertuchhaus</h1>
+		</div>
+	</div>
 
-	<div class="selectorBox">
-		<a id="column1" class="column" href="schraegluftbilder.html"><div class="sb_1"><div class="sb_2">Schrägluftbilder<span>Zoombare, hochauflösende Bilder<br>vom 19. Juni 1945</span></div></div></a>
-		<a id="column2" class="column" href="einzelbilder.html"><div class="sb_1"><div class="sb_2">Detailbilder<span>ausgewählte Ausschnitte<br>und Einzelbilder<br>aus der Innenstadt</span></div></div></a>
-		<a id="column3" class="column" href="luftbilder.html"><div class="sb_1"><div class="sb_2">Luftbilder<span>Zoombare, hochauflösende Bilder<br>von April 1945</span></div></div></a>
+	<div class="selectorBox title">
+		<a id="column1" class="column" href="schraegluftbilder.html">
+			<div class="sb_1"><div class="sb_2">
+				<div></div>
+				<span>Schrägluftbilder</span>
+				<span>Zoombare, hochauflösende Bilder<br>vom 19. Juni 1945</span></div></div>
+		</a>
+		<a id="column2" class="column" href="einzelbilder.html">
+			<div class="sb_1">
+				<div class="sb_2">
+					<div></div>
+					<span>Detailbilder</span>
+					<span>ausgewählte Ausschnitte<br>und Einzelbilder<br>aus der Innenstadt</span>
+				</div>
+			</div>
+		</a>
+		<a id="column3" class="column" href="luftbilder.html">
+			<div class="sb_1">
+				<div class="sb_2">
+					<div></div>
+					<span>Luftbilder</span>
+					<span>Zoombare, hochauflösende Bilder<br>von April 1945</span>
+				</div>
+			</div>
+		</a>
 	</div> 
 
 </body>
