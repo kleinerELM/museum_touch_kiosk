@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weimar 1945</title>
+  <!-- OpenSeadragon CSS -->
+  <style>
+
+	/* Allgemeines Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+	/* latin */
+	@font-face {
+		font-family: 'Libre Bodoni';
+		font-style: normal;
+		font-weight: 400;
+		src: url(./font/libre-bodoni-v5-latin-regular.woff2) format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+    body {
+		font-family: 'Libre Bodoni';
+		display: flex;
+		height: 100vh;
+		overflow: hidden;
+    }
+
+    .image-container {
+      flex: 1;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+	
+    /* Style für den Viewer */
+    #openseadragon1 {
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+    }
+
+	#head {
+		text-orientation: sideways;
+		writing-mode: vertical-lr;
+		transform: rotate(-180deg);
+		background-color: black;
+		padding: 1em 0.5em;
+		text-align: center;
+		color: white;
+	}
+	#head span {
+		font-size: xx-large;
+	}
+
+	#overlay {
+		width: calc(100% - 3em);
+		position: fixed;
+		height: 100vh;
+		background-image: url('./media/top.jpg');
+		background-size: cover;
+		background-position-x: -100em;
+	}
+
+	#shadow {
+		background-image: linear-gradient(to right, transparent 0%, black 95%);
+		height: 100vh;
+		width: 9em;
+		right: 0;
+		position: absolute;
+	}
+	#title {
+		position: fixed;
+		color: white;
+		text-align: center;
+		width: 100%;
+		height: 100vh;
+		display: table;
+	}
+	#title span {
+		display: table-cell;
+  		vertical-align: middle;
+		font-size: xxx-large;
+		text-shadow: 0px 0px 10px black;
+	}
+	#touch-button {
+		width: 10%;
+		position: fixed;
+		bottom: 14em;
+		right: 26em;
+		pointer-events: none;
+	}
+
+	#title a {
+		position: relative;
+		display: inline-block; 
+	}
+  </style>
+  <script src="js/jquery-3.7.1.min.js"></script> 
+</head>
+<body onclick="window.open('main_menu.html', '_top');">
+ 
+	<div class="image-container">
+	</div>
+
+	<!-- Header rechts -->
+	<div id="head">
+		<span>
+		Weimar im Sommer 1945
+		</span>
+	</div>
+	<div id="overlay">
+		<div id="shadow"></div>
+	</div>
+	<div id="title">
+		<span>
+			Erkunden sie die Details der Schrägluftbilder<br><br>Medienstation
+		</span>
+		<a   target="_blank">
+			<object type="image/svg+xml" data="./media/touch-synbol.svg" id="touch-button">
+				<img src="./media/touch-synbol.svg" />
+			</object>
+		</a>
+	</div>
+
+
+	<script>
+
+	$(document).ready(function() {
+		function loop_r() {
+			$('#overlay').animate({
+				'background-position-x': '-250em',
+			}, 30000, 'swing', function() {
+				loop_l();
+			});
+		}
+		function loop_l() {
+			$('#overlay').animate({
+				'background-position-x': '-100em',
+			}, 30000, 'swing', function() {
+				loop_r();
+			});
+		}
+		loop_r();
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   height="800px"
+   width="800px"
+   version="1.1"
+   id="Capa_1"
+   viewBox="0 0 38.273 38.273"
+   xml:space="preserve"
+   sodipodi:docname="go-back-arrow-svgrepo-com.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs1" /><sodipodi:namedview
+   id="namedview1"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="1.50875"
+   inkscape:cx="400.3314"
+   inkscape:cy="400"
+   inkscape:window-width="2560"
+   inkscape:window-height="1387"
+   inkscape:window-x="3832"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1" />
+<g
+   id="g1"
+   transform="translate(2.5367357,0.41221955)">
+	<path
+   style="fill:#b3b3b3"
+   d="M 20.621,10.484 V 5.84 C 20.621,5.032 20.163,4.292 19.44,3.931 18.718,3.572 17.851,3.652 17.204,4.137 L 0.849,16.461 c -0.537,0.405 -0.852,1.04 -0.849,1.712 0.002,0.673 0.322,1.305 0.862,1.706 l 16.355,12.133 c 0.646,0.48 1.51,0.554 2.23,0.191 0.72,-0.362 1.174,-1.1 1.174,-1.905 v -5.517 h 0.038 c 3.842,0 10.687,1.089 13.366,8.386 0.311,0.846 1.116,1.397 2.001,1.397 0.079,0 0.157,-0.004 0.236,-0.013 0.975,-0.108 1.751,-0.868 1.88,-1.84 0.052,-0.394 1.208,-9.682 -4.461,-16.23 -3.06,-3.533 -7.446,-5.546 -13.06,-5.997 z m 0.038,10.031 c -1.443,0 -2.379,0.132 -2.482,0.146 -1.046,0.154 -1.822,1.053 -1.822,2.111 v 3.287 l -10.66,-7.907 10.66,-8.033 v 2.401 c 0,1.168 0.939,2.119 2.108,2.134 5.345,0.063 9.374,1.61 11.975,4.6 1.442,1.658 2.314,3.602 2.835,5.469 -4.35,-3.685 -9.849,-4.208 -12.614,-4.208 z"
+   id="path1"
+   sodipodi:nodetypes="cscccccccscscsccccscscccscccs" />
+</g>
+</svg>

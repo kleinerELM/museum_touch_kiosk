@@ -1,0 +1,36 @@
+.scroll-container {
+	position: relative;
+}
+
+
+@keyframes bounce-top {
+	0% {
+		transform: translateY(-10px);
+	}
+	66% {
+		transform: translateY(5px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes bounce-bottom {
+	0% {
+		transform: translateY(10px);
+	}
+	33% {
+		transform: translateY(-5px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.bounce-top {
+	animation: bounce-top .5s ease;
+}
+
+.bounce-bottom {
+	animation: bounce-bottom .5s ease;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weimar 1945</title>
+  <!-- OpenSeadragon CSS -->
+  <link rel="stylesheet" href="./css/basic.css">
+  <style>
+	h1 {
+		position: fixed;
+		color: white;
+		width: 100%;
+		text-align: center;
+		margin-top: 0.5em;
+		font-size: xxx-large;
+	}
+	
+	#column1{
+		background-image: url('./media/mm-sl.jpg');
+		background-position: 6% 57%;
+		background-size: initial;
+	}
+
+	#column2{
+		background-image: url('./media/mm-crops.jpg');
+		background-position: 46% 50%;
+		background-size: cover;
+	}
+
+	#column3{
+		background-image: url('./media/mm-lb.jpg');
+		background-position: 46% 50%;
+		background-size: cover;
+		
+	}
+
+	.column {
+		float: left;
+		width: 25%;
+		margin: 6em 4.16% 3em 4.16%;
+		height: calc( 100% - 10em);
+		display: block;
+		text-align: center;
+		font-size: xx-large;
+		color: white;
+		background-color:dimgray;
+		border-radius: 1em;
+		text-decoration: none;
+		box-shadow: rgba(255, 255, 255, 0.176) 0px 7px 29px 0px;
+	}
+	.column:hover{
+		box-shadow: rgba(255, 255, 255, 0.409) 0px 7px 29px 0px;
+	}
+
+	.selectorBox {
+		width: 100%;
+	}
+	.selectorBox:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.column div.sb_1 {
+		display: table;
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		background-color: #0004;
+	}
+	.column div.sb_1:hover{
+		background-color: transparent;
+	}
+	.column div.sb_2 {
+		display: table-cell;
+		vertical-align: middle;
+		text-shadow: 0px 0px 10px black;
+	}
+	.column div.sb_2 span{
+		display: block;
+		font-size: initial;
+		margin-top: 1em;
+	}
+
+  </style>
+  <script src="js/jquery-3.7.1.min.js"></script> 
+  <script src="js/timeout.js"></script>
+</head>
+<body>
+	<h1>Weimar im Sommer 1945</h1>
+
+	<div class="selectorBox">
+		<a id="column1" class="column" href="schraegluftbilder.html"><div class="sb_1"><div class="sb_2">Schrägluftbilder<span>Zoombare, hochauflösende Bilder<br>vom 19. Juni 1945</span></div></div></a>
+		<a id="column2" class="column" href="einzelbilder.html"><div class="sb_1"><div class="sb_2">Detailbilder<span>ausgewählte Ausschnitte<br>und Einzelbilder<br>aus der Innenstadt</span></div></div></a>
+		<a id="column3" class="column" href="luftbilder.html"><div class="sb_1"><div class="sb_2">Luftbilder<span>Zoombare, hochauflösende Bilder<br>von April 1945</span></div></div></a>
+	</div> 
+
+</body>
+</html>
