@@ -3,51 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weimar 1945 - Luftbilder</title>
+  <title>Weimar 1945 - Einzelbilder</title>
   <!-- OpenSeadragon CSS -->
   <link rel="stylesheet" href="./css/basic.css">
   <link rel="stylesheet" href="./css/scroll_bounce.css">
   <style>
 
-	.head_wrapper, .block_wrapper {
-		text-align: center;
-		position: fixed;
-		width: 100%;
-		color: #d1d2d4;
-		text-align: left;
-	}
-	.block_wrapper {
-		mix-blend-mode: multiply;
-	}
-	.head_title {
-		font-size: xx-large;
-		margin: 1em auto 0 auto;
-		width: 25rem;
-		display: block;
-	}
-	.head_subtitle {
-		font-size: large;
-		margin: .5rem auto 0 auto;
-		width: 25rem;
-		display: block;
-		font-weight: 400;
-	}
-	.block1 {
-		display: block;
-		width: 13em;
-		height: 16em;
-		background-color: #01173f;
-		margin: 1em auto 0 auto;
-		translate: -6.5rem;
-	}
-	.block2 {
-		display: block;
-		width: 13em;
-		height: 12em;
-		background-color: darkred;
-		margin: 0em auto 0 auto;
-		translate: 6.7rem;
-	}
     #menu_nav {
 		width: 20.5em;
 		background-color: #161616;
@@ -63,6 +24,7 @@
   		margin-top: .75em;
 	}
     #nav {
+		font-family: "hiragino-mincho-pron", sans-serif;
 		width: 20.5em;
 		background-color: #161616;
 		border-right: 1px solid #292929;
@@ -126,8 +88,11 @@
     }
 
 	#nav li img {
-		width:17em;
+		width:17rem;
 		opacity: .5;
+		height:17rem;
+		object-fit: cover;
+    	object-position: top right;
 	}
 
 	#nav li:hover img {
@@ -138,7 +103,7 @@
 		position: absolute;
 		top: 2.3em;
 		font-size: xxx-large;
-		font-weight: bold;
+		/* font-weight: bold; */
 		color: white;
 		right: 0;
 		left: 0;
@@ -148,23 +113,27 @@
     #openseadragon1 {
       width: 100%;
       height: 100vh;
-      background-color: black;
+      background-color: black;/* #01173f; */
     }
 
 	#head {
-		text-orientation: sideways;
-		writing-mode: vertical-lr;
-		transform: rotate(-180deg);
-		background-color: black;
-		padding: 1em 0.5em;
+		font-family: "hiragino-mincho-pron", sans-serif;
+		background-color: #800000aa;
+		padding: 1em 1.5em;
 		text-align: center;
-		color: white;
+		/* mix-blend-mode: multiply; */
+		position: fixed;
+		right: 0;
+		top: 5rem;
 	}
 	#head span {
 		font-size: xx-large;
+		color: white;
+	}
+	#head_id {
+		/* font-family: 'Libre Bodoni'; */
 	}
   </style>
-  <script src="js/ndl8ohc.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/openseadragon.min.js"></script>
   <script src="js/custom.js"></script>
@@ -174,6 +143,7 @@
   </script>
 </head>
 <body>
+
 	<div id="menu_nav">
 		<a href="./main_menu.html"><img src="./media/go-back-arrow.svg"></a>
 	</div>
@@ -182,31 +152,35 @@
 		<ul id="images" class="content">
 		</ul>
 	</div>
+	<div id="map_nav">
+		<a href="#"><img src="./media/map-symbol.svg"></a>
+	</div>
 
 	<div class="image-container">
 		<div id="openseadragon1"></div>
 	</div>
 
 	<!-- Header rechts -->
-	<div id="head" class="title">
+	<div id="head">
 		<span style="opacity: 0;">
-		Weimar im Sommer 1945 - Luftbild "<span id="head_id"></span>"
+		<span id="head_id"></span>
 		</span>
 	</div>
 
 	<script type="text/javascript">
 		let file_data;
-		let path = "data/olb/";
+		let path = "data/einzelbilder/";
 		$.getJSON( path + "files.json", function( data ) {
 			file_data = data;
 			file_list = Object.keys(file_data);
 			build_navigation( path, file_list );
 			var id = get_id( file_list );
 
-			$('#head_id').html(id);
+			$('#head_id').text(id);
 			load_openseadragon_viewer( path, id, file_data[id]["deg"] );
 			$("#head span").animate({opacity:1},1000);
 			document.getElementById('link_' + id).scrollIntoView();
+			$("#map_nav").css({"background-image": "url('media/map_we_1945_zoom.jpg')"});
 
 		});
 

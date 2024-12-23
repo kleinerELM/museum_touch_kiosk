@@ -55,4 +55,44 @@ body {
 	font-style: normal;
 }
 
+#menu_nav {
+	width: 20.5rem;
+	background-color: #161616;
+	border-right: 1px solid #292929;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 4rem;
+	  text-align: center;
+}
+#menu_nav img {
+	height: 3rem;
+	  margin-top: .75rem;
+}
+#map_nav {
+	width: 20.5rem;
+	height: 4em;
+	background-color: #161616;
+	border-right: 1px solid #292929;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	  text-align: center;
+	background-size: cover;
+}
+#map_nav a img {
+	height: 3.5rem;
+	margin-top: .25rem;
+}
+#map_nav a {
+	background: #161616c9;
+	display: block;
+	height: 100%;
+}
 
+#map_nav .position_overlay{
+	display:none;
+	height:100%;
+	width:100%;
+	opacity:0;
+}

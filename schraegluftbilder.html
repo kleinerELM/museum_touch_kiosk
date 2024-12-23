@@ -3,26 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weimar 1945</title>
+  <title>Weimar 1945 - Schrägluftbilder</title>
   <!-- OpenSeadragon CSS -->
   <link rel="stylesheet" href="./css/basic.css">
   <link rel="stylesheet" href="./css/scroll_bounce.css">
   <style>
-	
-    #menu_nav {
-		width: 20.5em;
-		background-color: #161616;
-		border-right: 1px solid #292929;
-		position: fixed;
-		left: 0;
-		top: 0;
-		height: 4em;
-  		text-align: center;
-	}
-	#menu_nav img {
-		height: 3em;
-  		margin-top: .75em;
-	}
+
     #nav {
 		font-family: "hiragino-mincho-pron", sans-serif;
 		width: 20.5em;
@@ -31,11 +17,12 @@
 		overflow-y: auto;
 		padding: 1em;
 		margin-top:4em;
+		margin-bottom:4em;
 		padding-top: 1em;
     }
 	@-moz-document url-prefix() { /* Firefox */
 		#nav {
-			scrollbar-width: thin;  
+			scrollbar-width: thin;
 			scrollbar-color: #7a7a7a;
 		}
 	}
@@ -91,7 +78,7 @@
 		width:17em;
 		opacity: .5;
 	}
-	
+
 	#nav li:hover img {
 		opacity: .75;
 	}
@@ -105,7 +92,7 @@
 		right: 0;
 		left: 0;
 	}
-	
+
     /* Style für den Viewer */
     #openseadragon1 {
       width: 100%;
@@ -149,7 +136,14 @@
 		<ul id="images" class="content">
 		</ul>
 	</div>
+	<div id="map_nav">
+		<a href="#">
+			<img src="./media/map-symbol.svg">
+		</a>
+		<img class="position_overlay" src="./data/slb/0001/pos.svg">
+	</div>
 
+	<!-- main image -->
 	<div class="image-container">
 		<div id="openseadragon1"></div>
 	</div>
@@ -165,20 +159,16 @@
 		let file_data;
 		let path = "data/slb/";
 		$.getJSON( path + "files.json", function( data ) {
-			console.log(data);
 			file_data = data;
-			file_list = Object.keys(data);
+			file_list = Object.keys(file_data);
 			build_navigation( path, file_list );
 			var id = get_id( file_list );
-			/*paths = []
-			for (let i = 0; i < file_list.length; i++) {				
-				paths.push( "data/" + file_list[i] + "/stack.dzi" );
-			}
-			*/
+
 			$('#head_id').text(id);
-			load_openseadragon_viewer( path, id, data[id][0] );
+			load_openseadragon_viewer( path, id, file_data[id]["deg"] );
 			$("#head span").animate({opacity:1},1000);
 			document.getElementById('link_' + id).scrollIntoView();
+			$("#map_nav").css({"background-image": "url('media/map_we_1945.jpg')"});
 
 		});
 
