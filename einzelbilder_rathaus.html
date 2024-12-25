@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weimar 1945 - Einzelbilder</title>
+  <!-- OpenSeadragon CSS -->
+  <link rel="stylesheet" href="./css/basic.css">
+  <link rel="stylesheet" href="./css/scroll_bounce.css">
+  <style>
+	#nav li img {
+		width:17rem;
+		opacity: .5;
+		height:17rem;
+		object-fit: cover;
+    	object-position: top right;
+	}
+  </style>
+  <script src="js/ndl8ohc.js"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/openseadragon.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/timeout.js"></script>
+  <script>
+
+  </script>
+</head>
+<body>
+
+	<div id="menu_nav">
+		<a href="./main_menu.html"><img src="./media/go-back-arrow.svg"></a>
+	</div>
+	<!-- Navigation links -->
+	<div id="nav" class="scroll-container">
+		<ul id="images" class="content">
+		</ul>
+	</div>
+	<div id="map_nav">
+		<a href="#"><img src="./media/map-symbol.svg"></a>
+	</div>
+
+	<div class="image-container">
+		<div id="openseadragon1"></div>
+	</div>
+
+	<!-- Header rechts -->
+	<div id="head">
+		<span style="opacity: 0;">
+		<span id="head_id"></span>
+		</span>
+	</div>
+
+	<script type="text/javascript">
+		let path        = "data/einzelbilder/";
+		let std_map_url = "media/map_we_1945_zoom.jpg";
+	</script>
+
+	<script src="js/bounce.js"></script>
+
+</body>
+</html>

@@ -4,58 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weimar 1945 - Einzelbilder</title>
-  <!-- OpenSeadragon CSS -->
-  <link rel="stylesheet" href="./css/basic.css">
-  <link rel="stylesheet" href="./css/scroll_bounce.css">
+  <!-- OpenSeadragon CSS
+  <link rel="stylesheet" href="./css/basic.css"> -->
   <style>
-	#nav li img {
-		width:17rem;
-		opacity: .5;
-		height:17rem;
-		object-fit: cover;
-    	object-position: top right;
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body {
+		font-family: "hiragino-mincho-pron", sans-serif;
+		height: 100vh;
+		background-color: white;
+	}
+	#banner {
+		background-image: url('./media/top.jpg');
+		background-size: cover;
+		width: 100%;
+		height: 10rem;
+		position: fixed;
+		top:0;
+	}
+
+	.head_wrapper, .block_wrapper {
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		color: #d1d2d4;
+		text-align: left;
+	}
+	.block_wrapper {
+		mix-blend-mode: multiply;
+	}
+	.head_title {
+		font-size: x-large;
+		margin: 0.75em auto 0 auto;
+		width: 18.5rem;
+		display: block;
+	}
+	.head_subtitle {
+		font-size: large;
+		margin: .5rem auto 0 auto;
+		width: 25rem;
+		display: block;
+		font-weight: 400;
+	}
+	.block1 {
+		display: block;
+		width: 10.5rem;
+		height: 9.5rem;
+		background-color: #01173f;
+		margin: .5rem auto 0 auto;
+		translate: -5.25rem;
+	}
+	.block2 {
+		display: block;
+		width: 10.5rem;
+		height: 9.5rem;
+		background-color: darkred;
+		margin: 0em auto 0 auto;
+		translate: 5.4rem;
+	}
+
+
+
+	.fake-masonry {
+		column-width: 23rem;
+		column-gap: 1em;
+		margin-top: 12rem;
+		margin-bottom: 3rem;
+		margin-left: 1rem;
+		margin-right: 1rem;
+		width: calc( 100% -2rem );
+		color: #d1d2d4;
+	}
+
+	.fake-masonry .item {
+		margin-bottom:1rem;
+		display: inline-block;
+		padding:0.5em;
+		background-color: #01173f;
+	}
+	.fake-masonry .item img {
+		width:100%;
 	}
   </style>
   <script src="js/ndl8ohc.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
-  <script src="js/openseadragon.min.js"></script>
-  <script src="js/custom.js"></script>
   <script src="js/timeout.js"></script>
-  <script>
-
-  </script>
 </head>
 <body>
-
-	<div id="menu_nav">
-		<a href="./main_menu.html"><img src="./media/go-back-arrow.svg"></a>
-	</div>
-	<!-- Navigation links -->
-	<div id="nav" class="scroll-container">
-		<ul id="images" class="content">
-		</ul>
-	</div>
-	<div id="map_nav">
-		<a href="#"><img src="./media/map-symbol.svg"></a>
-	</div>
-
-	<div class="image-container">
-		<div id="openseadragon1"></div>
+	<div id="banner">
+		<div class="block_wrapper">
+			<div class="block1"></div>
+		</div>
+		<div class="block_wrapper">
+			<div class="block2"></div>
+		</div>
+		<div class="head_wrapper">
+			<h1 class="head_title title">Spuren des Krieges:<br>Weimar im Sommer 1945.<br>Seltene Schrägluftbilder<br>der US-Army.</h1>
+		</div>
 	</div>
 
-	<!-- Header rechts -->
-	<div id="head">
-		<span style="opacity: 0;">
-		<span id="head_id"></span>
-		</span>
+	<div id="single_images" class="fake-masonry">
+		<div></div>
 	</div>
+	<script>
+	let path ="data/einzelbilder/"
+	$.getJSON( "data/einzelbilder/prev.json", function( data ) {
+		console.log(data);
+		file_names = Object.keys(data);
+		console.log(file_names);
+		var items = [];
+		for (i = 0; i < file_names.length; ++i) {
+			var file = file_names[i];
+			console.log(file);
+			items.push(
+				'<div class="item" id="' + file + '"><img src="' + path + "prev/" + file + '.webp" /><span>' + data[file][0] + '</span></div>'
+			);
+		}
+		$('#single_images').html(items.join( "" ));
 
-	<script type="text/javascript">
-		let path        = "data/einzelbilder/";
-		let std_map_url = "media/map_we_1945_zoom.jpg";
+	});
 	</script>
-
-	<script src="js/bounce.js"></script>
-
 </body>
 </html>
