@@ -38,39 +38,19 @@ function build_navigation( path, data ) {
 			id;
 		items.push(
 			'<li id="link_' + data[i] + '"><a href="#"><img src="' + path + data[i] + '/stack_files/10/0_0.jpg" /><span>' + name + '</span></a></li>'
-			// ?id=' + data[i] + '
 		);
 	}
 	$('#images').html(items.join( "" ));
 	for (i = 0; i < data.length; ++i) {
+		// set the onclick funktion of the image
 		$("#link_" + data[i]).click(function(){
-			$("#head>span").animate({opacity:0},100);
-			console.log(this.id.split("_")[1]);
-			var id = this.id.split("_")[1];
-			var map_image = ("map" in file_data[id]) ?
-				'media/' + file_data[id]["map"] :
-				'media/map_we_1945.jpg';
-			var name = ("name" in file_data[id]) ?
-				file_data[id]["name"] :
-				id;
-
-			//window.location.href = '?id=' + this.id.substr(this.id.length - 4); // Ziel-URL hier anpassen
-			$('#openseadragon1').empty();
-			$('#head_id').text(name);
-			load_openseadragon_viewer( path, id, file_data[id]["deg"] );
-			$("#head span").animate({'opacity':1},1000);
-
-			$("#map_nav").css({"background-image": "url('" + map_image + "')"});
-			$("#map_nav .position_overlay").animate({'opacity':0},100, function() {
-				$("#map_nav .position_overlay").attr("src", path + id + "/pos.svg");
-				$("#map_nav .position_overlay").animate({'opacity':1},100);
-			});
+			var id = this.id.split("_")[1]; // get id from html-block-id
+			preview_click_evt(id, path, file_data);
 		});
 	}
 }
 
 function load_openseadragon_viewer( path, id, degrees ) {
-
 	var viewer = OpenSeadragon({
 		id: "openseadragon1",
 		prefixUrl: "./images/",
@@ -90,18 +70,101 @@ function load_openseadragon_viewer( path, id, degrees ) {
 	});
 }
 
+function map_click_evt( map_open ) {
+	$("#map_nav a").css({"display": "block"});
+	$("#map_nav a").animate({"opacity": map_open ? 0 : 1}, 500, function() {
+		$("#map_nav a").css({"display": map_open ? 'none' : "block"});
+		$("#map_nav .position_overlay").css({"display": map_open ? 'block' : "none"});
+		$("#map_nav .position_overlay").animate({"opacity": map_open ? 1 : 0}, 200);
+	  });
+	$("#map_nav").animate({"height": map_open ? '20.5rem' : '4rem'}, 500);
+	$("#map_nav").css({"background-blend-mode": map_open ? "initial" : 'soft-light'});
+	$("#nav").animate({"margin-bottom": map_open ? '20.5rem' : '4rem'}, 500);
+}
+
+function preview_click_evt(id, path, file_data) {
+	$("#head>span").animate({opacity:0},100);
+	var map_image = ("map" in file_data[id]) ?
+		'media/' + file_data[id]["map"] :
+		'media/map_we_1945.jpg';
+	var name = ("name" in file_data[id]) ?
+		file_data[id]["name"] :
+		id;
+
+	//window.location.href = '?id=' + this.id.substr(this.id.length - 4); // Ziel-URL hier anpassen
+	$('#openseadragon1').empty();
+	$('#head_id').text(name);
+	load_openseadragon_viewer( path, id, file_data[id]["deg"] );
+	$("#head span").animate({'opacity':1},1000);
+
+	if ( $('#map_nav').length ) {
+		$("#map_nav").css({"background-image": "url('" + map_image + "')"});
+		$("#map_nav .position_overlay").animate({'opacity':0},100, function() {
+			$("#map_nav .position_overlay").attr("src", path + id + "/pos.svg");
+			$("#map_nav .position_overlay").animate({'opacity':1},100);
+		});
+		if ($("#map_nav").prop('open') == 0) {
+			map_hinting( 2000 );
+		}
+	}
+}
+
+function init_page( path, std_map_url) {
+
+	$.getJSON( path + "files.json", function( data ) {
+		file_data = data;
+		file_list = Object.keys(file_data);
+		build_navigation( path, file_list );
+		var id = get_id( file_list );
+
+		$('#head_id').text(id);
+		load_openseadragon_viewer( path, id, file_data[id]["deg"] );
+		$("#head span").animate({opacity:1},1000);
+		document.getElementById('link_' + id).scrollIntoView();
+
+		if ( $('#map_nav').length ) {
+			$("#map_nav").css({"background-image": "url('" + std_map_url + "')"});
+		}
+
+	});
+};
+
+function toggle_map_state() {
+	if ( $("#map_nav").prop('open') == 1 ) {
+		$("#map_nav").prop('open', 0);
+	} else {
+		$("#map_nav").prop('open', 1);
+	}
+	return $("#map_nav").prop('open');
+}
+
+// opens map shortly for a set time in ms
+function map_hinting( time ) {
+	$("#map_nav").prop('autoclose', 1);
+	$("#map_nav").prop('open', 1);
+	map_click_evt( 1 );
+	setTimeout(() => {
+		if ( $("#map_nav").prop('autoclose') == 1 ) {
+			$("#map_nav").prop('open', 0);
+			map_click_evt( 0 );
+			$("#map_nav").prop('autoclose', 0);
+		};
+    }, time );
+};
 
 $(document).ready(function() {
-	$("#map_nav").click(function() {
-		var io = this.io ^= 1; // Simple I/O toggler
-		$("#map_nav a").css({"display": "block"});
-		$("#map_nav a").animate({"opacity": io ? 0 : 1}, 500, function() {
-			$("#map_nav a").css({"display": io ? 'none' : "block"});
-			$("#map_nav .position_overlay").css({"display": io ? 'block' : "none"});
-			$("#map_nav .position_overlay").animate({"opacity": io ? 1 : 0}, 200);
-		  });
-		$("#map_nav").animate({"height": io ? '20.5rem' : '4rem'}, 500);
-		$("#map_nav").css({"background-blend-mode": io ? "initial" : 'soft-light'});
-		$("#nav").animate({"margin-bottom": io ? '20.5rem' : '4rem'}, 500);
-	});
+	let file_data;
+
+	// load json and the respecting images
+	init_page( path, std_map_url );
+	if ( $('#map_nav').length ) {
+		$("#map_nav").prop('open', 1);
+
+		$("#map_nav").click(function() {
+			map_open = toggle_map_state(); // Simple I/O toggler
+			map_click_evt( map_open );
+			$("#map_nav").prop('autoclose', 0);
+		});
+		map_hinting( 3000 );
+	}
 });
