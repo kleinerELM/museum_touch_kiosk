@@ -29,8 +29,12 @@
 		<div></div>
 	</div>
 	<script>
+	function isNumeric(value) {
+		return /^-?\d+$/.test(value);
+	}
 	let path ="data/einzelbilder/"
 	$.getJSON( "data/einzelbilder/prev.json", function( data ) {
+
 		console.log(data);
 		file_names = Object.keys(data);
 		console.log(file_names);
@@ -47,20 +51,25 @@
 				id = this.id.split('_')[2] ;
 				var file = file_names[id];
 				var image_id = file.slice(0, 2);
-				console.log(image_id);
-				$('#single_images').hide();
-				$('body').append(
-					'<div id="fullscreen-wrapper"><div id="fullscreen">' +
-						'<img src="' + path + "prev/" + file + '.webp" />' +
-						'<span>' + data[file][0] + '</span>' +
-						'<a class="fullscreen_to_raw" href="./schraegluftbilder.html?id=' + image_id + '"><img src="./media/recenter.svg"/>zum Rohbild</a>' +
-						'<a class="fullscreen_close"href="#"><img src="./media/close.svg"/></a>' +
-					'</div></div>'
-				);
-				$( '#fullscreen a.fullscreen_close' ).click(function() {
-					$( '#fullscreen-wrapper' ).remove();
-					$( '#single_images' ).show();
-				});
+				if (1 in data[file] && data[file][1] != "") {
+					window.location.href = data[file][1];
+				} else {
+					fullscreen_button = isNumeric( image_id ) ? '<a class="fullscreen_to_raw" href="./schraegluftbilder.html?id=' + image_id + '"><img src="./media/recenter.svg"/>zum Rohbild</a>' : '';
+					console.log(image_id);
+					$('#single_images').hide();
+					$('body').append(
+						'<div id="fullscreen-wrapper"><div id="fullscreen">' +
+							'<img src="' + path + "prev/" + file + '.webp" />' +
+							'<span>' + data[file][0] + '</span>' +
+							fullscreen_button +
+							'<a class="fullscreen_close"href="#"><img src="./media/close.svg"/></a>' +
+						'</div></div>'
+					);
+					$( '#fullscreen a.fullscreen_close' ).click(function() {
+						$( '#fullscreen-wrapper' ).remove();
+						$( '#single_images' ).show();
+					});
+				}
 			});
 			$( '#banner' ).click(function() {
 				window.location.href = './main_menu.html';

@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weimar 1945 - Einzelbilder</title>
+  <title>Weimar 1945 - Rathaus</title>
   <!-- OpenSeadragon CSS -->
   <link rel="stylesheet" href="./css/basic.css">
   <link rel="stylesheet" href="./css/scroll_bounce.css">
   <style>
+    #nav {
+		margin-bottom:0em;
+    }
 	#nav li img {
 		width:17rem;
 		opacity: .5;
@@ -28,19 +31,33 @@
 <body>
 
 	<div id="menu_nav">
-		<a href="./main_menu.html"><img src="./media/go-back-arrow.svg"></a>
+		<a href="./main_menu.html"><img src="./media/home.svg"></a>&nbsp;&nbsp;&nbsp;
+		<a href="javascript:history.back()"><img src="./media/go-back-arrow.svg"></a>
 	</div>
 	<!-- Navigation links -->
 	<div id="nav" class="scroll-container">
 		<ul id="images" class="content">
 		</ul>
 	</div>
-	<div id="map_nav">
-		<a href="#"><img src="./media/map-symbol.svg"></a>
-	</div>
 
+	<!-- main image -->
 	<div class="image-container">
 		<div id="openseadragon1"></div>
+	</div>
+	<div id="toolbarDiv" class="toolbar">
+        <span>
+            <a id="zoom-in" href="#zoom-in" title="Zoom in"><img src="./media/zoom_in.svg" /></a>
+            <a id="zoom-out" href="#zoom-out" title="Zoom out"><img src="./media/zoom_out.svg" /></a>
+            <a id="home" href="#home" title="Go home"><img src="./media/recenter.svg" /></a>
+            <!-- <a id="full-page" href="#full-page" title="Toggle full page"><img src="./media/fullscreen.svg" /></a> -->
+        </span>
+        <span style="float:left;display:none;">
+        &lt;&nbsp;
+            <a id="previous" href="#previous-page" title="Previous page">Previous</a>
+            | <a id="next" href="#next-page" title="Next page">Next</a>
+            &nbsp;&gt;
+            <span id="currentpage"> 1 of 3 </span>
+        </span>
 	</div>
 
 	<!-- Header rechts -->
@@ -51,11 +68,10 @@
 	</div>
 
 	<script type="text/javascript">
-		let path        = "data/einzelbilder/";
-		let std_map_url = "media/map_we_1945_zoom.jpg";
+		let path        = "data/rathaus/";
+		let std_map_url = "media/map_we_1945.jpg";
 	</script>
 
 	<script src="js/bounce.js"></script>
-
 </body>
 </html>
