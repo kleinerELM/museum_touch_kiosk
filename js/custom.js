@@ -50,11 +50,21 @@ function build_navigation( path, data ) {
 	}
 }
 
-function load_openseadragon_viewer( path, id, degrees ) {
+function load_openseadragon_viewer( path, id, degrees, overlays ) {
 	var viewer = OpenSeadragon({
 		id: "openseadragon1",
 		prefixUrl: "./images/",
 		tileSources: path + id + "/stack.dzi", // Pfad zur DZI-Datei
+
+		overlays: {
+			id: 'example-overlay',
+			x: 0.33,
+			y: 0.75,
+			width: 0.2,
+			height: 0.25,
+			className: 'highlight'
+		},
+
 		showNavigator: true, // Navigator-Minimap anzeigen
 		navigatorPosition: "BOTTOM_RIGHT", // Position der Minimap
 		navigatorSizeRatio:0.15,
@@ -65,8 +75,11 @@ function load_openseadragon_viewer( path, id, degrees ) {
 		degrees: degrees,
 		visibilityRatio: 1,
 		minZoomImageRatio: 1,
-		/*tileSources: file_list,
-		showSequenceControl: true,*/
+		zoomInButton:   "zoom-in",
+		zoomOutButton:  "zoom-out",
+		homeButton:     "home",
+		fullPageButton: "full-page",
+		/* showSequenceControl: true,*/
 	});
 }
 

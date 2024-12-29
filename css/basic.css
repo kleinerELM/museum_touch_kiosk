@@ -196,3 +196,27 @@ body {
 	font-size: xx-large;
 	color: white;
 }
+
+.highlight {
+	background-color: #88000033;
+}
+#toolbarDiv {
+	position: fixed;
+	left: 22rem;
+	width: calc(100% - 20rem);
+}
+#toolbarDiv a {
+	line-height: 0;
+}
+#toolbarDiv a:hover {
+	background-color: #80000055;
+}
+#toolbarDiv span {
+	background-color: #ffffff19;
+	float: left;
+	margin: 10px 20px 0 0;
+	padding: 0.3rem 0.3rem 0rem 0.3rem;
+}
+#toolbarDiv a img {
+	width: 2.5rem;
+}

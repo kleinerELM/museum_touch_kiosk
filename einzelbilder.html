@@ -6,89 +6,8 @@
   <title>Weimar 1945 - Einzelbilder</title>
   <!-- OpenSeadragon CSS
   <link rel="stylesheet" href="./css/basic.css"> -->
-  <style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-	body {
-		font-family: "hiragino-mincho-pron", sans-serif;
-		height: 100vh;
-		background-color: white;
-	}
-	#banner {
-		background-image: url('./media/top.jpg');
-		background-size: cover;
-		width: 100%;
-		height: 10rem;
-		position: fixed;
-		top:0;
-	}
 
-	.head_wrapper, .block_wrapper {
-		text-align: center;
-		position: fixed;
-		width: 100%;
-		color: #d1d2d4;
-		text-align: left;
-	}
-	.block_wrapper {
-		mix-blend-mode: multiply;
-	}
-	.head_title {
-		font-size: x-large;
-		margin: 0.75em auto 0 auto;
-		width: 18.5rem;
-		display: block;
-	}
-	.head_subtitle {
-		font-size: large;
-		margin: .5rem auto 0 auto;
-		width: 25rem;
-		display: block;
-		font-weight: 400;
-	}
-	.block1 {
-		display: block;
-		width: 10.5rem;
-		height: 9.5rem;
-		background-color: #01173f;
-		margin: .5rem auto 0 auto;
-		translate: -5.25rem;
-	}
-	.block2 {
-		display: block;
-		width: 10.5rem;
-		height: 9.5rem;
-		background-color: darkred;
-		margin: 0em auto 0 auto;
-		translate: 5.4rem;
-	}
-
-
-
-	.fake-masonry {
-		column-width: 23rem;
-		column-gap: 1em;
-		margin-top: 12rem;
-		margin-bottom: 3rem;
-		margin-left: 1rem;
-		margin-right: 1rem;
-		width: calc( 100% -2rem );
-		color: #d1d2d4;
-	}
-
-	.fake-masonry .item {
-		margin-bottom:1rem;
-		display: inline-block;
-		padding:0.5em;
-		background-color: #01173f;
-	}
-	.fake-masonry .item img {
-		width:100%;
-	}
-  </style>
+  <link rel="stylesheet" href="./css/galery.css">
   <script src="js/ndl8ohc.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/timeout.js"></script>
@@ -118,13 +37,35 @@
 		var items = [];
 		for (i = 0; i < file_names.length; ++i) {
 			var file = file_names[i];
-			console.log(file);
 			items.push(
-				'<div class="item" id="' + file + '"><img src="' + path + "prev/" + file + '.webp" /><span>' + data[file][0] + '</span></div>'
+				'<div class="item" id="single_image_' + i + '"><img src="' + path + "prev/" + file + '.webp" /><span>' + data[file][0] + '</span></div>'
 			);
 		}
 		$('#single_images').html(items.join( "" ));
-
+		for (i = 0; i < file_names.length; ++i) {
+			$('#single_image_' + i).click(function() {
+				id = this.id.split('_')[2] ;
+				var file = file_names[id];
+				var image_id = file.slice(0, 2);
+				console.log(image_id);
+				$('#single_images').hide();
+				$('body').append(
+					'<div id="fullscreen-wrapper"><div id="fullscreen">' +
+						'<img src="' + path + "prev/" + file + '.webp" />' +
+						'<span>' + data[file][0] + '</span>' +
+						'<a class="fullscreen_to_raw" href="./schraegluftbilder.html?id=' + image_id + '"><img src="./media/recenter.svg"/>zum Rohbild</a>' +
+						'<a class="fullscreen_close"href="#"><img src="./media/close.svg"/></a>' +
+					'</div></div>'
+				);
+				$( '#fullscreen a.fullscreen_close' ).click(function() {
+					$( '#fullscreen-wrapper' ).remove();
+					$( '#single_images' ).show();
+				});
+			});
+			$( '#banner' ).click(function() {
+				window.location.href = './main_menu.html';
+			});
+		}
 	});
 	</script>
 </body>

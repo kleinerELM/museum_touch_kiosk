@@ -1,0 +1,133 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: "hiragino-mincho-pron", sans-serif;
+	height: 100vh;
+	background-color: black;
+	overflow-y: scroll; /* avoid scrollbar toggling */
+}
+#banner {
+	background-image: url('../media/top.jpg');
+	background-size: cover;
+	width: 100%;
+	height: 10rem;
+	position: fixed;
+	top:0;
+}
+
+.head_wrapper, .block_wrapper {
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	color: #d1d2d4;
+	text-align: left;
+}
+.block_wrapper {
+	mix-blend-mode: multiply;
+}
+.head_title {
+	font-size: x-large;
+	margin: 0.75em auto 0 auto;
+	width: 18.5rem;
+	display: block;
+}
+.head_subtitle {
+	font-size: large;
+	margin: .5rem auto 0 auto;
+	width: 25rem;
+	display: block;
+	font-weight: 400;
+}
+.block1 {
+	display: block;
+	width: 10.5rem;
+	height: 9.5rem;
+	background-color: #01173f;
+	margin: .5rem auto 0 auto;
+	translate: -5.25rem;
+}
+.block2 {
+	display: block;
+	width: 10.5rem;
+	height: 9.5rem;
+	background-color: darkred;
+	margin: 0em auto 0 auto;
+	translate: 5.4rem;
+}
+
+.fake-masonry {
+	column-width: 23rem;
+	column-gap: 1em;
+	margin-top: 12rem;
+	margin-bottom: 3rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	width: calc( 100% -2rem );
+	color: #d1d2d4;
+}
+
+.fake-masonry .item {
+	margin-bottom:1rem;
+	display: inline-block;
+	padding: 0.5rem;
+	background-color: #232323;/*#01173f;*/
+	cursor: pointer;
+}
+.fake-masonry .item img {
+	width:100%;
+}
+#fullscreen-wrapper {
+	width: 100%;
+	text-align: center;
+}
+#fullscreen {
+	position:   relative;
+	max-width:  fit-content;
+	max-height:  calc( 100vh - 11rem );
+	top:    10.5rem;
+	padding: 0.5rem;
+	padding-bottom: 4.5rem;
+	background-color: #232323;/*#01173f;*/
+	color: white;
+	font-size: 1rem;
+	display: inline-block;
+}
+#fullscreen img {
+	max-width: 100%;
+	max-height: calc(100vh - 16rem);
+	display: block;
+	margin: 0 auto;
+}
+#fullscreen span {
+	display: block;
+	/* top: 0;
+	position: absolute;*/
+	padding-right: 8rem;
+	left: 1rem;
+	bottom: 1rem;
+	position: absolute;
+	height: 2em;
+}
+#fullscreen a {
+	text-decoration: none;
+	color: white;
+	position: absolute;
+}
+#fullscreen a.fullscreen_to_raw {
+	right: 1.5rem;
+	bottom: .5rem;
+}
+#fullscreen a.fullscreen_close {
+	right: 1rem;
+	top: .8rem;
+}
+#fullscreen a img{
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	margin-bottom: .3rem;
+}
