@@ -74,7 +74,7 @@ function load_openseadragon_viewer( path, id, degrees ) {
 		navigatorHeight:    "15em",
 		navigatorAutoFade:  true,
 		preserveViewport:   false,
-		degrees:            degrees,
+		// degrees:            degrees,
 		visibilityRatio:   1,
 		minZoomImageRatio: 1,
 		zoomInButton:   "zoom-in",
@@ -83,6 +83,8 @@ function load_openseadragon_viewer( path, id, degrees ) {
 		fullPageButton: "full-page",
 		/* showSequenceControl: true,*/
 	});
+
+	viewer.viewport.setRotation(degrees, true);
 	return viewer;
 }
 
@@ -113,9 +115,11 @@ function preview_click_evt(id, path, file_data, viewer ) {
 
 	viewer.world.removeItem(last_item); // delete last image
 	// load new source
+	var degrees = file_data[id]["deg"];
+	console.log( degrees );
 	viewer.addTiledImage({
 		tileSource: path + id + "/stack.dzi",
-		degrees: file_data[id]["deg"],
+		//degrees: degrees,
 		success: function (obj) { last_item = obj.item; },
 		overlays: {
 			id: 'example-overlay',
@@ -126,6 +130,7 @@ function preview_click_evt(id, path, file_data, viewer ) {
 			className: 'highlight'
 		},
 	});
+	viewer.viewport.setRotation(degrees, true);
 
 	update_prev_next_btn( file_data, id, path, viewer );
 
@@ -151,7 +156,9 @@ function init_page( path, std_map_url, viewer) {
 		var id = get_id( file_list );
 
 		$('#head_id').text(id);
-		viewer = load_openseadragon_viewer( path, id, file_data[id]["deg"] );
+		var degrees = file_data[id]["deg"];
+		console.log( degrees );
+		viewer = load_openseadragon_viewer( path, id, degrees );
 		build_navigation( path, file_list, viewer );
 		update_prev_next_btn( file_data, id, path, viewer );
 		$("#head span").animate({opacity:1},1000);
