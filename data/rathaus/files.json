@@ -1,1 +1,12 @@
-{"Rathauspano":{"deg":0, "name":"Markt Panorama","map":"map_we_1945_zoom.jpg"}, "Rathaus0001":{"deg":0, "name":"Markt 1","map":"map_we_1945_zoom.jpg"}, "Rathaus0003":{"deg":0, "name":"Markt Pano", "map":"map_we_1945_zoom.jpg"}}
+{
+"Rathauspano":{"deg":0, "name":"Markt Panorama","map":"map_we_1945_zoom.jpg"},
+"01":{"deg":0, "name":"Markt 1", "map":"map_we_1945_zoom.jpg"},
+"02":{"deg":0, "name":"Markt 2", "map":"map_we_1945_zoom.jpg"},
+"03":{"deg":0, "name":"Markt 3", "map":"map_we_1945_zoom.jpg"},
+"04":{"deg":0, "name":"Markt 4", "map":"map_we_1945_zoom.jpg"},
+"05":{"deg":0, "name":"Markt 5", "map":"map_we_1945_zoom.jpg"},
+"06":{"deg":0, "name":"Markt 6", "map":"map_we_1945_zoom.jpg"},
+"07":{"deg":0, "name":"Markt 7", "map":"map_we_1945_zoom.jpg"},
+"08":{"deg":0, "name":"Markt 8", "map":"map_we_1945_zoom.jpg"},
+"09":{"deg":0, "name":"Markt 9", "map":"map_we_1945_zoom.jpg"}
+}
