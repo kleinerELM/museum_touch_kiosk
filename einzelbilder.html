@@ -24,7 +24,7 @@
 			<h1 class="head_title title">Spuren des Krieges:<br>Weimar im Sommer 1945.<br>Seltene Schrägluftbilder<br>der US-Army.</h1>
 		</div>
 	</div>
-
+	<div id="fist_pano"></div>
 	<div id="single_images" class="fake-masonry">
 		<div></div>
 	</div>
@@ -38,8 +38,9 @@
 		console.log(data);
 		file_names = Object.keys(data);
 		console.log(file_names);
+		$('#fist_pano').html('<div class="item" id="single_image_0"><img src="' + path + "prev/" + file_names[0] + '.png" /><span>' + data[file_names[0]][0] + '</span></div>')
 		var items = [];
-		for (i = 0; i < file_names.length; ++i) {
+		for (i = 1; i < file_names.length; ++i) {
 			var file = file_names[i];
 			items.push(
 				'<div class="item" id="single_image_' + i + '"><img src="' + path + "prev/" + file + '.webp" /><span>' + data[file][0] + '</span></div>'
@@ -56,7 +57,8 @@
 				} else {
 					fullscreen_button = isNumeric( image_id ) ? '<a class="fullscreen_to_raw" href="./schraegluftbilder.html?id=' + image_id + '"><img src="./media/recenter.svg"/>zum Rohbild</a>' : '';
 					console.log(image_id);
-					$('#single_images').hide();
+					$( '#single_images' ).hide();
+					$( '#fist_pano' ).hide();
 					$('body').append(
 						'<div id="fullscreen-wrapper"><div id="fullscreen">' +
 							'<img src="' + path + "prev/" + file + '.webp" />' +
@@ -67,6 +69,7 @@
 					);
 					$( '#fullscreen a.fullscreen_close' ).click(function() {
 						$( '#fullscreen-wrapper' ).remove();
+						$( '#fist_pano' ).show();
 						$( '#single_images' ).show();
 					});
 				}

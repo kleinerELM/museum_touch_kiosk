@@ -59,10 +59,24 @@ body {
 	translate: 5.4rem;
 }
 
+#fist_pano {
+	column-width: 75%;
+	margin-top: 12rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+	color: #d1d2d4;
+	text-align: center;
+}
+
+#fist_pano img {
+	display: block;
+	margin: 0 auto;
+}
+
 .fake-masonry {
 	column-width: 23rem;
 	column-gap: 1em;
-	margin-top: 12rem;
 	margin-bottom: 3rem;
 	margin-left: 1rem;
 	margin-right: 1rem;
@@ -70,14 +84,14 @@ body {
 	color: #d1d2d4;
 }
 
-.fake-masonry .item {
+.fake-masonry .item, #fist_pano .item {
 	margin-bottom:1rem;
 	display: inline-block;
 	padding: 0.5rem;
 	background-color: #232323;/*#01173f;*/
 	cursor: pointer;
 }
-.fake-masonry .item img {
+.fake-masonry .item img, #fist_pano .item img {
 	width:100%;
 }
 #fullscreen-wrapper {
