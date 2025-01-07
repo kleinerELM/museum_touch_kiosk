@@ -15,12 +15,18 @@ I used Fedora 40 (KDE). However a standard fedora would have worked similarly (a
 - Install httpd (Apache service), chromium and LightDM (GDM or similar would work too).
 - Copy this project to `/var/www/http/`.
 - Create a user for the museum display task. (here: `ausstellung`)
-- Make sure, that chromium does not lock itself by editing the cron-tab and adding the following line:
+- Make sure, that chromium does not lock itself by editing the cron-tab of the user `ausstellung` by crating a file (e.g. `crontab-ausstellung`) adding the following line:
 
-	`@reboot rm -f /home/ausstellung/.config/chromium/Singleton*`
+	```
+	@reboot rm -f /home/ausstellung/.config/chromium/Singleton*
+	```
+
+	Link this file to the cron-tab:
+
+	`$ crontab ./crontab-ausstellung`
 - add a new desktop environment
 
-	`sudo nano /usr/share/xsessions/chrome-kiosk.desktop`
+	`$ sudo nano /usr/share/xsessions/chrome-kiosk.desktop`
 
 	```	
 	[Desktop Entry]
@@ -46,7 +52,7 @@ I used Fedora 40 (KDE). However a standard fedora would have worked similarly (a
 
 - edit the lightDM settings to auto-login the user `ausstellung`:
 
-	`sudo nano /etc/lightdm/lightdm.conf`
+	`$ sudo nano /etc/lightdm/lightdm.conf`
 	```	
 	[Seat:*]
 	greeter-session=lightdm-greeter
