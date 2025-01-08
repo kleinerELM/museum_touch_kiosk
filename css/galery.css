@@ -10,6 +10,24 @@ body {
 	background-color: black;
 	overflow-y: scroll; /* avoid scrollbar toggling */
 }
+
+#menu_nav {
+	width: 8rem;
+	border-right: 1px solid #292929;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 10rem;
+	text-align: center;;
+	background-image: linear-gradient(to right, #161616 80%, transparent 100%);
+	padding-right: 1.5rem;
+
+}
+#menu_nav img {
+	width: 3rem;
+	margin-top: 3rem;
+}
+
 #banner {
 	background-image: url('../media/top.jpg');
 	background-size: cover;
