@@ -102,6 +102,7 @@ function map_click_evt( map_open ) {
 
 var last_item = false;
 function preview_click_evt(id, path, file_data, viewer ) {
+	hide_grid();
 	$("#head>span").animate({opacity:0},100);
 	var map_image = ("map" in file_data[id]) ?
 		'media/' + file_data[id]["map"] :
@@ -112,7 +113,6 @@ function preview_click_evt(id, path, file_data, viewer ) {
 
 	$('#head_id').text(name);
 	if (last_item === false) last_item = viewer.world.getItemAt(0);
-
 	viewer.world.removeItem(last_item); // delete last image
 	// load new source
 	var degrees = file_data[id]["deg"];
@@ -131,6 +131,7 @@ function preview_click_evt(id, path, file_data, viewer ) {
 		},
 	});
 	viewer.viewport.setRotation(degrees, true);
+	$("#home").click();
 
 	update_prev_next_btn( file_data, id, path, viewer );
 
@@ -149,7 +150,7 @@ function preview_click_evt(id, path, file_data, viewer ) {
 }
 
 function init_page( path, std_map_url, viewer) {
-
+	
 	$.getJSON( path + "files.json", function( data ) {
 		file_data = data;
 		file_list = Object.keys(file_data);
@@ -159,6 +160,7 @@ function init_page( path, std_map_url, viewer) {
 		var degrees = file_data[id]["deg"];
 		console.log( degrees );
 		viewer = load_openseadragon_viewer( path, id, degrees );
+		viewer_zoom = viewer.viewport.getZoom();
 		build_navigation( path, file_list, viewer );
 		update_prev_next_btn( file_data, id, path, viewer );
 		$("#head span").animate({opacity:1},1000);
@@ -226,6 +228,31 @@ function update_prev_next_btn( file_data, id, path, viewer ) {
 		$("#next").css({'opacity':.1});
 	}
 }
+function show_grid( ) {
+	$("#openseadragon1").css({"opacity": "0"});
+	$("body").css({"overflow":"auto", "background-color":"#161616"});
+	$("#menu_nav").css({"width": "100%"});
+	$("#nav").css({"columns": "6", "margin-bottom":0, "margin-top":0,"padding-top":"2rem","position":"absolute", "z-index": 1000});
+	$("#nav").animate({"width": "100%"}, 300);
+	$("#toolbar_container").hide();
+	$("#map_nav").hide();
+	$("#head").hide();
+	$("#show_grid_btn").hide();
+}
+
+function hide_grid(  ) {
+	$("body").css({"overflow":"", "background-color":"#161616"});
+	$("#menu_nav").css({"width": ""});
+	$("#nav").css({"margin-bottom":"", "margin-top":"","padding-top":"", "position":""});
+	$("#nav").animate({"width": "20.5rem"}, 200, function() {
+		$("#nav").css({"columns": "", });
+		$("#toolbar_container").show();
+		$("#map_nav").show();
+		$("#head").show();
+		$("#show_grid_btn").show();
+		$("#openseadragon1").animate({"opacity": "1"}, 200);
+	});
+}
 
 $(document).ready(function() {
 
@@ -241,5 +268,10 @@ $(document).ready(function() {
 			$("#map_nav").prop('autoclose', 0);
 		});
 		map_hinting( 3000 );
+
+		$("#show_grid_btn").click(function() {
+			show_grid( );
+		});
+			
 	}
 });
