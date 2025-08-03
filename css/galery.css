@@ -11,6 +11,11 @@ body {
 	overflow-y: scroll; /* avoid scrollbar toggling */
 }
 
+a {
+	text-decoration: none;
+	color: #800000;
+}
+
 #menu_nav {
 	width: 8rem;
 	position: fixed;
@@ -76,7 +81,32 @@ body {
 	translate: 5.4rem;
 }
 
-#fist_pano {
+#content {
+	min-height: calc(100vh - 10rem);
+	margin-bottom: 1rem;
+	padding: 1rem;
+	background-color: #232323;
+}
+#content span {
+	display: block;
+	text-align: left;
+}
+#content ol {
+	list-style: none;
+	padding-left: 0;
+	margin-top: 1rem;
+	counter-reset: item;
+}
+#content ol li {
+	list-style: none;
+	display: block;
+	counter-increment: item;
+}
+#content ol li::before {
+  content: "[" counter(item,decimal) "] ";
+}
+
+#fist_pano, #content {
 	column-width: 75%;
 	margin-top: 12rem;
 	margin-left: auto;

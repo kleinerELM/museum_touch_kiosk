@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weimar 1945 - Quellen</title>
+  <!-- OpenSeadragon CSS
+  <link rel="stylesheet" href="./css/basic.css"> -->
+
+  <link rel="stylesheet" href="./css/galery.css">
+  <script src="js/ndl8ohc.js"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/timeout.js"></script>
+  <script>
+	function get_slb_sources( ) {
+		var path        = "data/slb/";
+		
+		$.getJSON( path + "files.json", function( data ) {
+			file_data = data;
+			file_list = Object.keys(file_data);
+			url = "https://geoportal.geoportal-th.de/gaialight-th/_apps/dladownload/download.php?type=lb&id=";
+			
+			for (var id in file_data) {
+				if (id === undefined) continue;
+				if (file_data[id]["src_id"] === undefined) continue;
+
+				var src = url + file_data[id]["src_id"];
+				/* console.log( src ); */
+				$('#content ol').append('<li>U.S. Air Force, <a href="./schraegluftbilder.html?id=' + id + '">194581-' + id + '</a>. 16. März 1945. Schrägluftbild. © GDI-Th. <a href="' + src + '" target="_blank">Download vom Geoportal</a></li>');
+			}
+
+		});
+	};
+	function get_rathaus_sources( ) {
+		var path        = "data/rathaus/";
+		
+		$.getJSON( path + "files.json", function( data ) {
+			file_data = data;
+			file_list = Object.keys(file_data);
+			url = "https://fotoarchiv.buchenwald.de/detail/";
+			
+			for (var id in file_data) {
+				if (id === undefined) continue;
+				if (file_data[id]["src_id"] === undefined) continue;
+
+				var src = url + file_data[id]["src_id"];
+				console.log( src );
+				$('#content ol').append('<li>Sherman Chapman. "' + file_data[id]["name"] + '" (020-11.' + file_data[id]["src_name"] + '). 14. Juni 1945. Fotografie. National Archives, Washington. <a href="' + src + '" target="_blank">zu den Metadaten</a></li>');/*  url:   <a href="./schraegluftbilder.html?id=' + id + '"> */
+			}
+
+		});
+	};
+	$(document).ready(function() {
+		get_slb_sources( );
+		get_rathaus_sources( );
+
+	});
+  </script>
+</head>
+<body style="height: initial;">
+	<div id="banner">
+		<div class="block_wrapper">
+			<div class="block1"></div>
+		</div>
+		<div class="block_wrapper">
+			<div class="block2"></div>
+		</div>
+		<div class="head_wrapper">
+			<h1 class="head_title title">Spuren des Krieges:<br>Weimar im Sommer 1945.<br>Seltene Schrägluftbilder<br>der US-Army.</h1>
+		</div>
+	</div>
+	<div id="menu_nav">
+		<a href="./main_menu.html"><img src="./media/home.svg"></a>
+	</div>
+	<div id="content">		<h1>Quellen</h1>
+
+		<span>
+			Die Schrägluftbilder und die Luftbilder wurden von der US-Army im Juni 1945 aufgenommen und sind Teil des Bestandes der US National Archives and Records Administration (NARA) und wurden vom <a href="https://geoportal.thueringen.de/gdi-th/download-offene-geodaten" target="_blank">Geoportal Thüringen</a> unter der <a href="https://www.govdata.de/dl-de/by-2-0" target="_blank">Datenlizenz Deutschland 2.0</a> zur Verfügung gestellt. Die Einzelbilder wurden aus den Schrägluftbildern erstellt und zeigen Details der Innenstadt von Weimar.<br>
+			Die Bilder vom Rathausdach wurden am 4. Juni 1945 von Sherman Chapman, einem Soldaten der Signal Corps der US-Army, aufgenommen und sind über das Foto-Archiv der Stiftung Buchenwald verfügbar.<br>
+			<br>
+			Die gezeigten Bilder wurden für die Sonderausstellung "Spuren des Krieges: Weimar im Sommer 1945" im <a href="https://www.weimar.de/stadtmuseum" target="_blank">Stadtmuseum Weimar</a> im Bertuchhaus aufbereitet und waren im Rahmen dieser Ausstellung vom 22.02. bis 31.08.2025 zu sehen.
+			<ol>
+			</ol>
+		</span>
+	</div>
+	
+</body>
+</html>
