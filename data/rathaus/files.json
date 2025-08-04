@@ -1,12 +1,12 @@
 {
 "Rathauspano":{"deg":0, "name":"Markt Panorama","map":"map_we_1945_zoom.jpg"},
-"01":{"deg":0, "name":"Markt 1", "map":"map_we_1945_zoom.jpg", "src_id":9401, "src_name":"018"},
-"02":{"deg":0, "name":"Markt 2", "map":"map_we_1945_zoom.jpg", "src_id":9403, "src_name":"020"},
-"03":{"deg":0, "name":"Markt 3", "map":"map_we_1945_zoom.jpg", "src_id":9405, "src_name":"022"},
-"04":{"deg":0, "name":"Markt 4", "map":"map_we_1945_zoom.jpg", "src_id":9400, "src_name":"017"},
-"05":{"deg":0, "name":"Markt 5", "map":"map_we_1945_zoom.jpg", "src_id":9402, "src_name":"019"},
-"06":{"deg":0, "name":"Markt 6", "map":"map_we_1945_zoom.jpg", "src_id":9398, "src_name":"015"},
-"07":{"deg":0, "name":"Markt 7", "map":"map_we_1945_zoom.jpg", "src_id":9404, "src_name":"021"},
-"08":{"deg":0, "name":"Markt 8", "map":"map_we_1945_zoom.jpg", "src_id":9399, "src_name":"016"},
-"09":{"deg":0, "name":"Markt 9", "map":"map_we_1945_zoom.jpg", "src_id":9406, "src_name":"023"}
+"0001":{"deg":0, "name":"Markt 1", "map":"map_we_1945_zoom.jpg", "src_id":9401, "src_name":"018"},
+"0002":{"deg":0, "name":"Markt 2", "map":"map_we_1945_zoom.jpg", "src_id":9403, "src_name":"020"},
+"0003":{"deg":0, "name":"Markt 3", "map":"map_we_1945_zoom.jpg", "src_id":9405, "src_name":"022"},
+"0004":{"deg":0, "name":"Markt 4", "map":"map_we_1945_zoom.jpg", "src_id":9400, "src_name":"017"},
+"0005":{"deg":0, "name":"Markt 5", "map":"map_we_1945_zoom.jpg", "src_id":9402, "src_name":"019"},
+"0006":{"deg":0, "name":"Markt 6", "map":"map_we_1945_zoom.jpg", "src_id":9398, "src_name":"015"},
+"0007":{"deg":0, "name":"Markt 7", "map":"map_we_1945_zoom.jpg", "src_id":9404, "src_name":"021"},
+"0008":{"deg":0, "name":"Markt 8", "map":"map_we_1945_zoom.jpg", "src_id":9399, "src_name":"016"},
+"0009":{"deg":0, "name":"Markt 9", "map":"map_we_1945_zoom.jpg", "src_id":9406, "src_name":"023"}
 }

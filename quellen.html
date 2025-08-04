@@ -45,7 +45,41 @@
 
 				var src = url + file_data[id]["src_id"];
 				console.log( src );
-				$('#content ol').append('<li>Sherman Chapman. "' + file_data[id]["name"] + '" (020-11.' + file_data[id]["src_name"] + '). 14. Juni 1945. Fotografie. National Archives, Washington. <a href="' + src + '" target="_blank">zu den Metadaten</a></li>');/*  url:   <a href="./schraegluftbilder.html?id=' + id + '"> */
+				$('#content ol').append('<li>Sherman Chapman. "<a href="./einzelbilder_rathaus.html?id=' + id + '">' + file_data[id]["name"] + '</a>" (020-11.' + file_data[id]["src_name"] + '). 14. Juni 1945. Fotografie. National Archives, Washington. <a href="' + src + '" target="_blank">zu den Metadaten</a></li>');/*  url:   <a href="./schraegluftbilder.html?id=' + id + '"> */
+			}
+
+		});
+	};
+	function get_olb_sources( ) {
+		var path        = "data/olb/";
+		
+		$.getJSON( path + "files.json", function( data ) {
+			file_data = data;
+			file_list = Object.keys(file_data);
+			url = "https://geoportal.geoportal-th.de/gaialight-th/_apps/dladownload/download.php?type=lb&id=";
+			console.log( file_data );
+			for (var id in file_data) {
+				if (id === undefined) continue;
+				if (file_data[id]["src_id"] === undefined && file_data[id]["multi_src_id"] === undefined && file_data[id]["src"] === undefined) continue;
+				if (file_data[id]["src_id"] !== undefined) {
+					var src = url + file_data[id]["src_id"];
+					/* console.log( src ); */
+					$('#content ol').append('<li>U.S. Air Force, <a href="./luftbilder.html?id=' + id + '">194581-' + id + '</a>. 16. März 1945. Luftbild. © GDI-Th. <a href="' + src + '" target="_blank">Download vom Geoportal</a></li>');
+
+				} else if (file_data[id]["multi_src_id"] !== undefined) {
+					for (var sec_id in file_data[id]["multi_src_id"]) {
+						console.log( sec_id );
+						if (!file_data[id]["multi_src_id"].hasOwnProperty(sec_id)) continue;
+						var src = url + file_data[id]["multi_src_id"][sec_id];
+						console.log( src );
+						$('#content ol').append('<li>U.S. Air Force, <a href="./luftbilder.html?id=' + id + '">' + sec_id + '</a>. 16. März 1945. Luftbild. © GDI-Th. <a href="' + src + '" target="_blank">Download vom Geoportal</a></li>');
+					}
+				} else if (file_data[id]["src"] !== undefined) {
+					$('#content ol').append('<li><a href="./luftbilder.html?id=' + id + '">' + file_data[id]["src"] + '</a></li>');
+				} else {
+					continue;
+				}
+				
 			}
 
 		});
@@ -53,6 +87,7 @@
 	$(document).ready(function() {
 		get_slb_sources( );
 		get_rathaus_sources( );
+		get_olb_sources( );
 
 	});
   </script>

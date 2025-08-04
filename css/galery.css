@@ -96,6 +96,7 @@ a {
 	padding-left: 0;
 	margin-top: 1rem;
 	counter-reset: item;
+	font-size: small;
 }
 #content ol li {
 	list-style: none;

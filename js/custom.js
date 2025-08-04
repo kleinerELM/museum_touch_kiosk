@@ -155,8 +155,11 @@ function init_page( path, std_map_url, viewer) {
 		file_data = data;
 		file_list = Object.keys(file_data);
 		var id = get_id( file_list );
+		var name = ("name" in file_data[id]) ?
+			file_data[id]["name"] :
+			id;
 
-		$('#head_id').text(id);
+		$('#head_id').text(name);
 		var degrees = file_data[id]["deg"];
 		console.log( degrees );
 		viewer = load_openseadragon_viewer( path, id, degrees );
