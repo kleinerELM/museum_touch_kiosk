@@ -1,5 +1,5 @@
 # museum_touch_kiosk
-Media station for an exhibition showing very large image scans. 
+Media station for an exhibition showing very large image scans. The running web version can be viewed at https://weimar1945.flugplatz-nohra.de/ .
 
 - add ./js/ndl8ohc.js from https://use.typekit.net/ndl8ohc.js (provided by adobe) to display the correct font
 
@@ -7,6 +7,7 @@ Media station for an exhibition showing very large image scans.
 and process them using `./deepzoom/create_dzi.py` which utilizes [deepzoom.py](https://github.com/openzoom/deepzoom.py).
 The lib `deepzoom.py` has to be fixed to work properly with modern python libs. I fixed it in [this](https://github.com/kleinerELM/deepzoom.py) fork for Python 3.x under windows using `pillow` 11.1.0 .
 
+- the web version uses `index_website.html` and the touchscreen version `index.html` as entry page.
 
 ## Kiosk-PC preparation
 
@@ -15,7 +16,7 @@ I used Fedora 40 (KDE). However a standard fedora would have worked similarly (a
 - Install httpd (Apache service), chromium and LightDM (GDM or similar would work too).
 - Copy this project to `/var/www/http/`.
 - Create a user for the museum display task. (here: `ausstellung`)
-- Make sure, that chromium does not lock itself by editing the cron-tab of the user `ausstellung` by crating a file (e.g. `crontab-ausstellung`) adding the following line:
+- Make sure, that chromium does not lock itself by editing the cron-tab of the user `ausstellung` by creating a file (e.g. `crontab-ausstellung`) adding the following line:
 
 	```
 	@reboot rm -f /home/ausstellung/.config/chromium/Singleton*
