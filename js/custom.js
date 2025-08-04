@@ -232,7 +232,8 @@ function show_grid( ) {
 	$("#openseadragon1").css({"opacity": "0"});
 	$("body").css({"overflow":"auto", "background-color":"#161616"});
 	$("#menu_nav").css({"width": "100%"});
-	$("#nav").css({"columns": "6", "margin-bottom":0, "margin-top":0,"padding-top":"2rem","position":"absolute", "z-index": 1000});
+	$("#nav").addClass("grid");
+	//$("#nav").css({"columns": "6", "margin-bottom":0, "margin-top":0,"padding-top":"2rem","position":"absolute", "z-index": 1000});
 	$("#nav").animate({"width": "100%"}, 300);
 	$("#toolbar_container").hide();
 	$("#map_nav").hide();
@@ -244,6 +245,7 @@ function hide_grid(  ) {
 	$("body").css({"overflow":"", "background-color":"#161616"});
 	$("#menu_nav").css({"width": ""});
 	$("#nav").css({"margin-bottom":"", "margin-top":"","padding-top":"", "position":""});
+	$("#nav").removeClass("grid");
 	$("#nav").animate({"width": "20.5rem"}, 200, function() {
 		$("#nav").css({"columns": "", });
 		$("#toolbar_container").show();
