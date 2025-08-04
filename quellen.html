@@ -25,7 +25,6 @@
 				if (file_data[id]["src_id"] === undefined) continue;
 
 				var src = url + file_data[id]["src_id"];
-				/* console.log( src ); */
 				$('#content ol').append('<li>U.S. Air Force, <a href="./schraegluftbilder.html?id=' + id + '">194581-' + id + '</a>. 16. März 1945. Schrägluftbild. © GDI-Th. <a href="' + src + '" target="_blank">Download vom Geoportal</a></li>');
 			}
 
@@ -44,8 +43,7 @@
 				if (file_data[id]["src_id"] === undefined) continue;
 
 				var src = url + file_data[id]["src_id"];
-				console.log( src );
-				$('#content ol').append('<li>Sherman Chapman. "<a href="./einzelbilder_rathaus.html?id=' + id + '">' + file_data[id]["name"] + '</a>" (020-11.' + file_data[id]["src_name"] + '). 14. Juni 1945. Fotografie. National Archives, Washington. <a href="' + src + '" target="_blank">zu den Metadaten</a></li>');/*  url:   <a href="./schraegluftbilder.html?id=' + id + '"> */
+				$('#content ol').append('<li>Sherman Chapman. "<a href="./einzelbilder_rathaus.html?id=' + id + '">' + file_data[id]["name"] + '</a>" (020-11.' + file_data[id]["src_name"] + '). 14. Juni 1945. Fotografie. National Archives, Washington. <a href="' + src + '" target="_blank">zu den Metadaten</a></li>');
 			}
 
 		});
@@ -63,15 +61,12 @@
 				if (file_data[id]["src_id"] === undefined && file_data[id]["multi_src_id"] === undefined && file_data[id]["src"] === undefined) continue;
 				if (file_data[id]["src_id"] !== undefined) {
 					var src = url + file_data[id]["src_id"];
-					/* console.log( src ); */
 					$('#content ol').append('<li>U.S. Air Force, <a href="./luftbilder.html?id=' + id + '">194581-' + id + '</a>. 16. März 1945. Luftbild. © GDI-Th. <a href="' + src + '" target="_blank">Download vom Geoportal</a></li>');
 
 				} else if (file_data[id]["multi_src_id"] !== undefined) {
 					for (var sec_id in file_data[id]["multi_src_id"]) {
-						console.log( sec_id );
 						if (!file_data[id]["multi_src_id"].hasOwnProperty(sec_id)) continue;
 						var src = url + file_data[id]["multi_src_id"][sec_id];
-						console.log( src );
 						$('#content ol').append('<li>U.S. Air Force, <a href="./luftbilder.html?id=' + id + '">' + sec_id + '</a>. 16. März 1945. Luftbild. © GDI-Th. <a href="' + src + '" target="_blank">Download vom Geoportal</a></li>');
 					}
 				} else if (file_data[id]["src"] !== undefined) {
@@ -79,7 +74,6 @@
 				} else {
 					continue;
 				}
-				
 			}
 
 		});
@@ -88,7 +82,6 @@
 		get_slb_sources( );
 		get_rathaus_sources( );
 		get_olb_sources( );
-
 	});
   </script>
 </head>
@@ -110,12 +103,16 @@
 	<div id="content">		<h1>Quellen</h1>
 
 		<span>
-			Die Schrägluftbilder und die Luftbilder wurden von der US-Army im Juni 1945 aufgenommen und sind Teil des Bestandes der US National Archives and Records Administration (NARA) und wurden vom <a href="https://geoportal.thueringen.de/gdi-th/download-offene-geodaten" target="_blank">Geoportal Thüringen</a> unter der <a href="https://www.govdata.de/dl-de/by-2-0" target="_blank">Datenlizenz Deutschland 2.0</a> zur Verfügung gestellt. Die Einzelbilder wurden aus den Schrägluftbildern erstellt und zeigen Details der Innenstadt von Weimar.<br>
-			Die Bilder vom Rathausdach wurden am 4. Juni 1945 von Sherman Chapman, einem Soldaten der Signal Corps der US-Army, aufgenommen und sind über das Foto-Archiv der Stiftung Buchenwald verfügbar.<br>
+			Die Schrägluftbilder und die Luftbilder wurden von der US-Army 1945 aufgenommen und vom <a href="https://geoportal.thueringen.de/gdi-th/download-offene-geodaten" target="_blank">Geoportal Thüringen</a> unter der <a href="https://www.govdata.de/dl-de/by-2-0" target="_blank">Datenlizenz Deutschland 2.0</a> zur Verfügung gestellt.<br>
+			Die Fotos vom Rathausdach wurden am 4. Juni 1945 von Sherman Chapman, einem Soldaten der Signal Corps der US-Army, aufgenommen und sind über das Foto-Archiv der Stiftung Buchenwald verfügbar.<br>
 			<br>
-			Die gezeigten Bilder wurden für die Sonderausstellung "Spuren des Krieges: Weimar im Sommer 1945" im <a href="https://www.weimar.de/stadtmuseum" target="_blank">Stadtmuseum Weimar</a> im Bertuchhaus aufbereitet und waren im Rahmen dieser Ausstellung vom 22.02. bis 31.08.2025 zu sehen.
+			Die gezeigten Bilder wurden für die Sonderausstellung "Spuren des Krieges: Weimar im Sommer 1945" im <a href="https://www.weimar.de/stadtmuseum" target="_blank">Stadtmuseum Weimar</a> im Bertuchhaus aufbereitet und waren im Rahmen dieser Ausstellung vom 22.02. bis 31.08.2025 zu sehen.<br>
+			<br>
+			<b>Liste der verwendeten Bilder</b>
 			<ol>
 			</ol>
+			<br>
+			Der Quelltext dieser Webseite, sowie eine Installationsanleitung ist auf <a href="https://github.com/kleinerELM/museum_touch_kiosk" target="_blank">GitHub</a> unter <a href="https://opensource.org/licenses/GPL-3.0" target="_blank">GPLv3</a> verfügbar.
 		</span>
 	</div>
 	
