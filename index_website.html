@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weimar 1945</title>
+  <style>
+
+	/* Allgemeines Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+	/* latin */
+	@font-face {
+		font-family: 'Libre Bodoni';
+		font-style: normal;
+		font-weight: 400;
+		src: url(./font/libre-bodoni-v5-latin-regular.woff2) format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+    body {
+
+		font-family: "hiragino-mincho-pron", sans-serif;
+		display: flex;
+		height: 100vh;
+		overflow: hidden;
+    }
+
+	a {
+		text-decoration: none;
+		color: #800000;
+		cursor: pointer;
+	}
+
+    .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+	.head_wrapper, .block_wrapper {
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		color: #d1d2d4;
+		text-align: left;
+	}
+	.block_wrapper {
+		mix-blend-mode: multiply;
+	}
+	.head_title {
+		font-size: xxx-large;
+		margin: 1.5em auto 0 auto;
+		width: 41rem;
+		display: block;
+	}
+	.head_subtitle {
+		font-size: x-large;
+		margin: .5rem auto 0 auto;
+		width: 41rem;
+		display: block;
+		font-weight: 400;
+	}
+	.block1 {
+		display: block;
+		width: 20rem;
+		height: 24em;
+		background-color: #01173f;
+		margin: 2.5em auto 0 auto;
+		translate: -11.5rem;
+	}
+	.block2 {
+		display: block;
+		width: 20rem;
+		height: 19rem;
+		background-color: darkred;
+		margin: 0em auto 0 auto;
+		translate: 8.7rem;
+	}
+
+	#head {
+		text-orientation: sideways;
+		writing-mode: vertical-lr;
+		transform: rotate(-180deg);
+		background-color: black;
+		padding: 1em 0.5em;
+		text-align: center;
+		color: white;
+	}
+	#head span {
+		font-size: xx-large;
+	}
+
+	#overlay {
+		width: 100%;
+		position: fixed;
+		height: 100vh;
+		background-image: url('./media/top.jpg');
+		background-size: cover;
+		background-position-x: -100em;
+		z-index:-1;
+	}
+
+	#shadow {
+		background-image: linear-gradient(to right, transparent 0%, black 95%);
+		height: 100vh;
+		width: 9em;
+		right: 0;
+		position: absolute;
+	}
+	#title {
+		position: fixed;
+		color: white;
+		text-align: center;
+		width: 100%;
+		height: 100vh;
+        display: block;
+		padding: 28rem 10% 2rem 10%;
+	}
+	#title>span {
+        display: block;
+        max-height: 100%;
+        overflow-y: auto;
+		font-size: 1.25rem;
+		text-shadow: 0px 0px 10px black;
+		font-weight: normal;
+		background-color: #232323db;
+		padding: 1rem;
+		overflow-y: auto;
+		max-height: 100%;
+	}
+	#title>span>span {
+		font-size: 1rem;
+		text-align: justify;
+		display: block;
+		max-width: 60em;
+		margin: 0 auto;
+	}
+	#touch-button {
+		width: 10%;
+		margin-bottom: 1em;
+		pointer-events: none;
+		cursor: pointer;
+	}
+
+	#title a {
+		position: relative;
+		display: inline-block;
+	}
+
+	@media (max-width: 1279px) {
+		.head_title {
+			font-size: xx-large;
+			margin: 1em auto 0 auto;
+			width: 25rem;
+		}
+		.head_subtitle {
+			font-size: large;
+			width: 25rem;
+		}
+		.block1 {
+			width: 13em;
+			height: 16em;
+			margin: 1em auto 0 auto;
+			translate: -6.5rem;
+		}
+		.block2 {
+			width: 13em;
+			height: 12em;
+			translate: 6.7rem;
+		}
+		#title {
+			padding: 19rem 5% 2rem 5%;
+		}
+	}
+	@media (max-width: 739px) {     
+	#title {
+        padding: 19rem 2% 2rem 2%;
+        height: 100vh;
+        display: block;
+    }
+    #title > span {
+        display: block;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+	}
+  </style>
+  <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body onclick="window.open('main_menu.html', '_top');">
+
+    <div class="block_wrapper">
+		<div class="block1"></div>
+	</div>
+    <div class="block_wrapper">
+		<div class="block2"></div>
+	</div>
+    <div class="head_wrapper">
+		<h1 class="head_title title">Spuren des Krieges:<br>Weimar im Sommer 1945.<br>Seltene Schrägluftbilder<br>der US-Army.</h1>
+		<h1 class="head_subtitle title">Sonderausstellung im<br>Stadtmuseum Weimar<br>im Bertuchhaus</h1>
+	</div>
+
+	<div class="image-container">
+	</div>
+
+	<div id="overlay">
+	</div>
+	<div id="title">
+		<span>
+			Auf dieser Seite können Sie die Schrägluftbilder der US-Army und die Fotografien des Weimarer Rathauses einsehen, die in der Sonderausstellung
+			<br><i>"Spuren des Krieges: Weimar im Sommer 1945. Seltene Schrägluftbilder der US-Army."</i><br> vom 22.02. bis 31.08.2025 im Stadtmuseum Weimar gezeigt wurden.<br><br>
+			<a   target="_blank">
+				<object type="image/svg+xml" data="./media/touch-synbol.svg" id="touch-button">
+					<img src="./media/touch-synbol.svg" />
+				</object>
+			</a>
+			<span>
+				Die Luftüberlegenheit war im Zweiten Weltkrieg in entscheidender Faktor für den Sieg der Alliierten. Während Jagdflieger und Bomberpiloten damals meist im Rampenlicht der Berichterstattung standen, spielten auch die Luftaufklärer eine unverzichtbare Rolle.<br><br>
+
+				Ihre Aufgabe bestand darin, präzise Luftbilder von feindlichen Stellungen, Truppenbewegungen, Industrieanlagen und Städten zu erstellen. Diese Bilder dienten als Planungsgrundlage für Angriffe, die Einschätzung der Stärke des Gegners und die Beurteilung der Schäden nach Bombenangriffen. <br><br>
+
+				Die Arbeit dieser Piloten war gefährlich. Sie waren ständigen Angriffen feindlicher Jäger ausgesetzt und flogen selbst mit unbewaffneten Flugzeugen. Viele dieser Luftaufklärer kamen bei ihren Einsätzen ums Leben.<br>
+				Um qualitativ hochwertige Luftbilder zu erhalten, waren die Aufklärungsflugzeuge mit speziellen, hochauflösenden Kameras ausgestattet. Sie ermöglichten Aufnahmen in verschiedenen Höhen, mit unterschiedlichen Brennweiten - aber auch aus verschiedenen Blickwinkeln.<br>
+				Im Gegensatz zu senkrechten Luftbildern, die vor allem zur Erstellung von Karten dienten, lieferten Schrägaufnahmen Informationen über die Topographie sowie den Zustand von Gebäuden und Infrastruktur. Sie bieten uns heute einen faszinierenden Einblick in das Leben in dieser Zeit.<br><br>
+
+				In der Sonderausstellung wurden erstmals einzigartige Schrägluftbilder aus einer Befliegung vom 19. Juni 1945 als großformatige Drucke öffentlich gezeigt. Sie zeigen das nördliche Weimar aus ungewöhnlicher Perspektive und bringen damit den damaligen Zustand der Stadt wieder zurück ins Bewusstsein des heutigen Betrachters. Die Bilder geben auch einen Einblick in das System der Zwangsarbeit im damaligen Rüstungswerk („Fritz-Sauckel-Werk“, später „Weimar-Werk“). Das frühere Zwangsarbeiterlager und das Außenlager des KZ Buchenwald werden erstmals aus einer völlig neuen Perspektive sichtbar.<br><br>
+
+				Ergänzt werden die Luftbilder durch ein Panorama der am 9. Februar 1945 beschädigten Weimarer Innenstadt. Es besteht aus neun Einzelbildern, die am 4. Juni 1945 von Sherman Chapman, einem Soldaten der Signal Corps der US-Army vom Rathaus aus aufgenommen wurden.<br><br>
+
+				Die präsentierten Bilder zeigen die Zerstörung, aber auch die Hoffnung der Menschen auf eine bessere Zeit in diesem ersten Nachkriegssommer 1945.<br><br>
+			</span>
+			Eine Anleitung zur Bedienung der Medienstation finden Sie <a href="./downloads/Medienstation Anleitung.pdf" target="_blank">hier</a>.<br><br>
+			Der Flyer zur Ausstellung kann <a href="./downloads/Flyer_Spuren_des_Krieges.pdf" target="_blank">hier</a> heruntergeladen werden.<br><br>
+		</span>
+	</div>
+	<script>
+
+	$(document).ready(function() {
+		function loop_r() {
+			$('#overlay').animate({
+				'background-position-x': '-250em',
+			}, 60000, 'swing', function() {
+				loop_l();
+			});
+		}
+		function loop_l() {
+			$('#overlay').animate({
+				'background-position-x': '-100em',
+			}, 60000, 'swing', function() {
+				loop_r();
+			});
+		}
+		loop_r();
+	});
+	</script>
+</body>
+</html>
